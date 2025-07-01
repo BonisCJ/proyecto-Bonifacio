@@ -3,7 +3,13 @@ package ui;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+
+//new parte 4
+import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+
 
 import ui.config.Config;
 import ui.components.List;
@@ -36,6 +42,9 @@ public class DashBoard extends JFrame {
         createContainer();
         createList();
         createTable();
+        //parte4
+        createUserManagementButton();
+
     }
 
     private void createContainer() {
@@ -74,4 +83,15 @@ public class DashBoard extends JFrame {
         tablePanel.setVisible(true);
         centerPanel.add(tablePanel, BorderLayout.CENTER);
     }
+    //parte 4
+    private void createUserManagementButton() {
+    JButton userButton = new JButton("Gestión de usuarios");
+    userButton.addActionListener(e -> openUserManagementWindow(e));
+    westPanel.add(userButton, BorderLayout.NORTH);
+}
+
+private void openUserManagementWindow(ActionEvent e) {
+    new UserManagementWindow().setVisible(true);
+}
+
 }
